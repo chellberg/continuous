@@ -1,13 +1,13 @@
 package continuous;
 
-import java.awt.Canvas;
 import java.awt.Graphics;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-public class Continuous extends Canvas {
+public class Continuous extends JPanel {
     public static void main(String[] args) {
-        new Frame(new Canvas()).render();
+        new Frame(new Continuous()).render();
     }
     
     public void paint(Graphics g) {
@@ -17,14 +17,17 @@ public class Continuous extends Canvas {
 
 @SuppressWarnings("serial")
 class Frame extends JFrame {
-    Canvas canvas;
+    Continuous continuous;
     
-    public Frame(Canvas canvas) {
-        this.canvas = canvas;
+    public Frame(Continuous continuous) {
+        this.continuous = continuous;
+        this.setContentPane(continuous);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
     public void render() {
-        Graphics g = canvas.getGraphics();
-        canvas.paint(g);
+        Graphics g = continuous.getGraphics();
+        continuous.paint(g);
+        this.setVisible(true);
     }
 }
