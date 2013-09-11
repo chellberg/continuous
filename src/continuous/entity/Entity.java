@@ -1,4 +1,5 @@
 package continuous.entity;
+import continuous.Game;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -38,13 +39,13 @@ public class Entity {
 
 		// if entity is at rest, start accelerating
 		if (this.dx == 0 && this.dy == 0) {
-			this.dx = dx;
-			this.dy = dy;
+			this.x = dx;
+			this.y = dy;
 		} 
-		// otherwise call moveTo with new velocity
-		else {
-			moveTo(x + dx, y + dy);
+		else {       //otherwise call moveTo with new velocity // removed else here
+			moveTo(this.x + dx, this.y + dy);
 		}
+		
 	}
 	
 	public void moveTo(double x, double y) {
@@ -52,9 +53,28 @@ public class Entity {
 		this.y = y;
 	}
 	
+	
+	
 	public void tick() {
-		move(0,1); //simulating gravity
-	}
+		if (Game.leftPressed == true) {
+			dx += -.03;
+			}
+		if (Game.rightPressed == true) {
+			dx += .03;
+			}
+		if (Game.upPressed == true) {
+			dy += -.03;
+		}
+		if (Game.downPressed == true) {
+			dy += .03;
+			}
+		if (Game.upPressed == false) {
+			dy += .01;
+
+		}
+		move(dx, dy); //simulating gravity
+		//move(0,1);
+	}	
 
 }
 
