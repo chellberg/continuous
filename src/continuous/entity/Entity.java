@@ -72,7 +72,7 @@ public class Entity {
 		if (Game.downPressed == true) {
 			dy += .03;
 			}
-		/*if (Game.upPressed == false) { //simulating gravity
+		/*if (Game.upPressed == false) { // simulating gravity
 			dy += .01;
 
 		}*/

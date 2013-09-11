@@ -35,6 +35,11 @@ public class GUI {
         gameView.paint(g);
     }
     
+    public void setMap(Board board) {
+    	this.gameView.setBoard(board);
+    	frame.pack();
+    }
+    
     public void tick() {
         frame.repaint();
     }
