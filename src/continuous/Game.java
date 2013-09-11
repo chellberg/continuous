@@ -5,13 +5,14 @@ import java.awt.Graphics;
 import continuous.entity.Entity;
 import continuous.gfx.GUI;
 import continuous.gfx.Input;
+import continuous.world.Board;
 
 public class Game extends Thread {
 
 	public static void main(String[] args) {
 		Game game = new Game();
 		game.start();
-
+		
 	}
 
 	private static final String TITLE = "Continuous";
@@ -19,6 +20,7 @@ public class Game extends Thread {
 	protected Entity entity;
 	protected GUI gui;
 	protected Input input;
+	protected Board board;
 	
 	public static boolean leftPressed, rightPressed, upPressed, downPressed;
 
@@ -26,6 +28,7 @@ public class Game extends Thread {
 		input = new Input();
 		entity = new Entity();
 		gui = new GUI(this);
+		board = new Board(16, 12);
 
 	}
 
@@ -43,11 +46,11 @@ public class Game extends Thread {
 
 	public void tick() {
 		input.tick();
+		board.tick();
 		entity.tick();
 		gui.tick();
-		
-		// gui.render();
-	}
+
+			}
 
 	public GUI getFrame() {
 		return gui;
@@ -56,8 +59,12 @@ public class Game extends Thread {
 	public String getTitle() {
 		return TITLE;
 	}
-
-	public void paint(Graphics g) {
-		entity.paint(g);
+	
+	public Board getBoard() {
+		return board;
 	}
+
+	/*public void paint(Graphics g) {
+		entity.paint(g);
+	}*/
 }

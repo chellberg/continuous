@@ -6,21 +6,23 @@ import java.awt.Graphics;
 import javax.swing.JFrame;
 
 import continuous.Game;
-import continuous.gfx.Input;
+import continuous.world.Board;
 
 public class GUI {
-    GameView gameView;
+    BoardView boardView;
     Game continuous;
     
     JFrame frame;
     
     public GUI(Game game) {
         this.continuous = game;
-        gameView = new GameView(game);
-        gameView.setFocusable(true);
-        gameView.requestFocusInWindow();
+        
+        boardView = new BoardView(game.getBoard());
+        boardView.setFocusable(true);
+        boardView.requestFocusInWindow();
+        
         frame = new JFrame(game.getTitle());
-        frame.setContentPane(gameView);
+        frame.setContentPane(boardView);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setVisible(true);
@@ -31,12 +33,12 @@ public class GUI {
   
     
     public void render() {
-        Graphics g = gameView.getGraphics();
-        gameView.paint(g);
+        Graphics g = boardView.getGraphics();
+        boardView.paint(g);
     }
     
     public void setMap(Board board) {
-    	this.gameView.setBoard(board);
+    	this.boardView.setBoard(board);
     	frame.pack();
     }
     

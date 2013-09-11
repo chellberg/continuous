@@ -9,7 +9,7 @@ import continuous.entity.Entity;
 
 public class Tile {
 	int x, y;
-	final static int SIZE = 64;
+	final static int SIZE = 50;
 	ArrayList<Entity> entities = new ArrayList<Entity>();
 	
 	public Tile(int x, int y) {
