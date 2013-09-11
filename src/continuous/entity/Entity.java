@@ -56,6 +56,10 @@ public class Entity {
 	
 	
 	public void tick() {
+		update();
+		}
+
+	public void update() {
 		if (Game.leftPressed == true) {
 			dx += -.03;
 			}
@@ -68,12 +72,11 @@ public class Entity {
 		if (Game.downPressed == true) {
 			dy += .03;
 			}
-		if (Game.upPressed == false) {
+		/*if (Game.upPressed == false) { //simulating gravity
 			dy += .01;
 
-		}
-		move(dx, dy); //simulating gravity
-		//move(0,1);
+		}*/
+		move(dx, dy); 
 	}	
 
 }
