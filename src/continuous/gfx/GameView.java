@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import continuous.Game;
 
@@ -17,8 +16,10 @@ public class GameView extends JPanel {
     
     public GameView(Game game) {
         this.game = game;
-        addKeyListener(new Input()
-        );
+    }
+    
+    public void addInput(Input input) {
+        addKeyListener(input);
     }
     
     public void paint(Graphics g) {
@@ -29,5 +30,3 @@ public class GameView extends JPanel {
         return new Dimension(WIDTH, HEIGHT);
     }
 }
-    
-

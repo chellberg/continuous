@@ -2,17 +2,14 @@ package continuous.gfx;
 
 import java.awt.Graphics;
 
-
 import javax.swing.JFrame;
 
 import continuous.Game;
-import continuous.gfx.Input;
 
 public class GUI {
-    GameView gameView;
     Game continuous;
-    
     JFrame frame;
+    GameView gameView;
     
     public GUI(Game game) {
         this.continuous = game;
@@ -24,11 +21,13 @@ public class GUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setVisible(true);
-      //  frame.setFocusable(true);
+        // frame.setFocusable(true);
         frame.pack();
     }
     
-  
+    public void addInput(Input input) {
+        gameView.addInput(input);
+    }
     
     public void render() {
         Graphics g = gameView.getGraphics();
