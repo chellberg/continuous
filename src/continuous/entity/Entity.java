@@ -7,7 +7,7 @@ import continuous.gfx.Input;
 
 public class Entity {
     private double x, y, dx, dy;
-    
+    double[] delta = new double[2];
     private final Input input = new Input();
     
     private static final int WIDTH = 32;
@@ -38,10 +38,9 @@ public class Entity {
         move(dx, dy);
     }
     
-    public void move(double dx, double dy) {
-        
-        // if entity is at rest, start accelerating
-        if (this.dx == 0 && this.dy == 0) {
+    public void move(double dx, double dy) {       // if entity is at rest, start accelerating
+             
+        if (dx == 0 && dy == 0) {
             this.x = dx;
             this.y = dy;
         } else { // otherwise call moveTo with new velocity // removed else here
@@ -56,14 +55,17 @@ public class Entity {
     }
     
     public void tick() {
-        update();
+       delta = input.getDelta();
+       dx += delta[0];
+       dy += delta[1];
+       move(dx, dy);
     }
     
     public Input getInput() {
         return this.input;
     }
     
-    public void update() {
+  /*  public void update() {
         if (input.leftPressed) {
             dx += -.03;
         }
@@ -76,12 +78,12 @@ public class Entity {
         if (input.downPressed) {
             dy += .03;
         }
-        /*
+        
          * if (Game.upPressed == false) { //simulating gravity dy += .01;
          * 
          * }
-         */
+         *
         move(dx, dy);
-    }
+    }*/
     
 }
