@@ -27,7 +27,7 @@ public class Game extends Thread {
 	public Game()  {
 		input = new Input();
 		board = new Board(16, 12);
-		entity = new Entity(50.0,50.0, board);
+		entity = new Entity(200.0,200.0, board);
 		gui = new GUI(this);
 	
 
