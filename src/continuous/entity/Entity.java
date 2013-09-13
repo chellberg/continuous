@@ -1,11 +1,14 @@
 package continuous.entity;
 import continuous.Game;
+import continuous.world.*;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
 public class Entity {
 	private double x, y, dx, dy;
+	Board board;
+	Tile tile;
 
 	private static final int WIDTH = 32;
 	private static final int HEIGHT = 32;
@@ -51,6 +54,16 @@ public class Entity {
 	public void moveTo(double x, double y) {
 		this.x = x;
 		this.y = y;
+		Tile t = board.getTileAt((int) x, (int) y);
+		
+		// leave old tile if present
+		if (tile != null) {
+			tile.removeEntity(this);
+		}
+		
+		// join the new tile
+		tile = t;
+		tile.addEntity(this);
 	}
 	
 	

@@ -43,6 +43,6 @@ public class GUI {
     }
     
     public void tick() {
-        frame.repaint();
+    	frame.repaint();
     }
 }

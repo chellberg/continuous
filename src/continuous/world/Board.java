@@ -55,18 +55,18 @@ public class Board {
 	}
 	
 	public void paint(Graphics g) {
-		// List<Entity> entities = new ArrayList<Entity>();
+		 List<Entity> entities = new ArrayList<Entity>();
 		for (int y = 0; y < numRows; y++) {
 			for (int x = 0; x < numCols; x++) {
 				Tile t = board[x][y];              
-				t.paint(g);                        // paints the tile
-				// entities.addAll(t.getEntities());   // gets any entities present
+				//t.paint(g);                        // paints the tile
+				entities.addAll(t.getEntities());   // gets any entities present
 			}
 		}
 		
-		// for (int i = 0; i < entities.size(); i++) {
-		//	entities.get(i).paint(g);
-		//}
+		 for (int i = 0; i < entities.size(); i++) {
+			entities.get(i).paint(g);
+		}
 	}
 	
 	
