@@ -55,7 +55,7 @@ public class Board {
 	}
 	
 	public void paint(Graphics g) {
-		// List<Entity> entities = new ArrayList<Entity>();
+		  //List<Entity> entities = new ArrayList<Entity>();
 		for (int y = 0; y < numRows; y++) {
 			for (int x = 0; x < numCols; x++) {
 				Tile t = board[x][y];              

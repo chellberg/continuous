@@ -27,9 +27,9 @@ public class Game extends Thread {
 	public Game()  {
 		input = new Input();
 		board = new Board(16, 12);
-		entity = new Entity();
+		entity = new Entity(50.0,50.0, board);
 		gui = new GUI(this);
-		
+	
 
 	}
 
@@ -47,8 +47,9 @@ public class Game extends Thread {
 
 	public void tick() {
 		input.tick();
-		board.tick();
 		entity.tick();
+		board.tick();
+	
 		gui.tick();
 		
 			}
@@ -66,6 +67,7 @@ public class Game extends Thread {
 	}
 
 	/*public void paint(Graphics g) {
-		entity.paint(g);
-	}*/
+	 *entity.paint(g);
+	 *}
+	 */
 }
